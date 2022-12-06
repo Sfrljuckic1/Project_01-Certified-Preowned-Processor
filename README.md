@@ -6,13 +6,17 @@ Tasks
   1. (100 pts) At a minimum, implement the single-cycle implementation as described in 4.4, handling the subset of instructions (ALU funcs, lw/sw, beq, jump) mentioned.
   2. (20 pts) Implement 5-stage pipelining as shown in 4.7.
 
-Contributors
 
-  Jose Pavon
-  David Bohon
-  Selim Frljuckic
+
+**Contributors**
+
+Jose Pavon
+David Bohon
+Selim Frljuckic
   
-Learned Notes/Features
+  
+  
+**Learned Notes/Features**
   
 For the MIPS 32-bit single cycle, we built a simple implementation using the datapath of the previous section 4.3 and added a simple control function. This simple implementation covers load word (lw), store word (sw), branch equal (beq), and the arithmetic-logical instructions add, sub, OR,, and set on less than. We then enhanced the design to include a jump instruction (j). 
 
