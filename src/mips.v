@@ -3,14 +3,14 @@
 module mips (
     input         clk       ,
     input         rst       ,
-    // imem side
-    input  [31:0] imem_data ,
-    output [31:0] imem_addr ,
-    // dmem side
-    input  [31:0] dmem_rdata,
-    output        dmem_we   ,
-    output [31:0] dmem_addr ,
-    output [31:0] dmem_wdata
+    // instruction memory
+    input  [31:0] instr_mem_data ,
+    output [31:0] instr_mem_addr ,
+    // data memory
+    input  [31:0] data_mem_rdata,
+    output        data_mem_we   ,
+    output [31:0] data_mem_addr ,
+    output [31:0] data_mem_wdata
 );
 
     wire [2:0] alucontrol;
@@ -22,13 +22,13 @@ module mips (
     wire       reg_write ;
 
     controller controller_inst (
-        .instr     (imem_data ),
+        .instr     (instr_mem_data ),
         .alucontrol(alucontrol),
         .alu_src   (alu_src   ),
         .branch    (branch    ),
         .jump      (jump      ),
         .mem_to_reg(mem_to_reg),
-        .mem_write (dmem_we   ),
+        .mem_write (data_mem_we   ),
         .reg_dst   (reg_dst   ),
         .reg_write (reg_write )
     );
@@ -41,14 +41,14 @@ module mips (
         .branch    (branch    ),
         .jump      (jump      ),
         .mem_to_reg(mem_to_reg),
-        .mem_write (dmem_we   ),
+        .mem_write (data_mem_we   ),
         .reg_dst   (reg_dst   ),
         .reg_write (reg_write ),
-        .instr     (imem_data ),
-        .pc        (imem_addr ),
-        .read_data (dmem_rdata),
-        .alu_result(dmem_addr ),
-        .write_data(dmem_wdata)
+        .instr     (instr_mem_data ),
+        .pc        (instr_mem_addr ),
+        .read_data (data_mem_rdata),
+        .alu_result(data_mem_addr ),
+        .write_data(data_mem_wdata)
     );
 
 endmodule

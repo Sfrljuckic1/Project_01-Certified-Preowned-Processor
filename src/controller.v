@@ -1,5 +1,5 @@
-`include "maindec.v"
-`include "aludec.v"
+`include "functions.v"
+`include "controlcodes.v"
 module controller (
 	input  [31:0] instr     ,
 	// other side
@@ -14,7 +14,7 @@ module controller (
 	output        alu_src
 );
 
-	maindec maindec_inst (
+	functions functions_inst (
 		.instr     (instr     ),
 		.branch    (branch    ),
 		.jump      (jump      ),
@@ -25,7 +25,7 @@ module controller (
 		.alu_src   (alu_src   )
 	);
 
-	aludec aludec_inst (
+	controlcodes controlcodes_inst (
 		.instr     (instr     ),
 		.alucontrol(alucontrol)
 	);

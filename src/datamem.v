@@ -1,4 +1,4 @@
-module dmem (
+module datamem (
 	input         clk  ,
 	input         we   ,
 	input  [31:0] addr ,

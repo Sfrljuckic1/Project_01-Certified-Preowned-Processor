@@ -1,40 +1,40 @@
-`include "imem.v"
+`include "instrmem.v"
 `include "mips.v"
-`include "dmem.v"
+`include "datamem.v"
 module top (
 	input clk, // clock
 	input reset  // synchronous reset active high
 );
 
-	wire [31:0] imem_data ;
-	wire [31:0] imem_addr ;
-	wire [31:0] dmem_rdata;
-	wire        dmem_we   ;
-	wire [31:0] dmem_addr ;
-	wire [31:0] dmem_wdata;
+	wire [31:0] instr_mem_data ;
+	wire [31:0] instr_mem_addr ;
+	wire [31:0] data_mem_rdata;
+	wire        data_mem_we   ;
+	wire [31:0] data_mem_addr ;
+	wire [31:0] data_mem_wdata;
 
-	imem imem_inst (
-		.addr(imem_addr[7:2]),
-		.data(imem_data     )
+	instrmem instrmem_inst (
+		.addr(instr_mem_addr[7:2]),
+		.data(instr_mem_data     )
 	);
 
 	mips mips_inst (
 		.clk       (clk       ),
 		.rst       (reset     ),
-		.imem_data (imem_data ),
-		.imem_addr (imem_addr ),
-		.dmem_rdata(dmem_rdata),
-		.dmem_we   (dmem_we   ),
-		.dmem_addr (dmem_addr ),
-		.dmem_wdata(dmem_wdata)
+		.instr_mem_data (instr_mem_data ),
+		.instr_mem_addr (instr_mem_addr ),
+		.data_mem_rdata(data_mem_rdata),
+		.data_mem_we   (data_mem_we   ),
+		.data_mem_addr (data_mem_addr ),
+		.data_mem_wdata(data_mem_wdata)
 	);
 
-	dmem dmem_inst (
+	datamem datamem_inst (
 		.clk  (clk       ),
-		.we   (dmem_we   ),
-		.addr (dmem_addr ),
-		.wdata(dmem_wdata),
-		.rdata(dmem_rdata)
+		.we   (data_mem_we   ),
+		.addr (data_mem_addr ),
+		.wdata(data_mem_wdata),
+		.rdata(data_mem_rdata)
 	);
 
 endmodule

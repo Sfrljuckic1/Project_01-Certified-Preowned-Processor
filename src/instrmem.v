@@ -1,12 +1,11 @@
-module imem (
+module instrmem (
 	input  [ 5:0] addr,
 	output [31:0] data
 );
 
 	reg [31:0] data;
 
-	// echo -e {00..63}": data = 32'h00000000;\n"
-	// xx : data = {6'dx,5'dx,5'dx,5'dx,5'dx,6'dx};
+	//Holds the instructions to be run here. Supports up to 32 instructions.
 	always @(addr) begin
 		case(addr)
 			00 : data = 32'h20020005;
@@ -41,38 +40,6 @@ module imem (
 			29 : data = 32'h00000000;
 			30 : data = 32'h00000000;
 			31 : data = 32'h00000000;
-			32 : data = 32'h00000000;
-			33 : data = 32'h00000000;
-			34 : data = 32'h00000000;
-			35 : data = 32'h00000000;
-			36 : data = 32'h00000000;
-			37 : data = 32'h00000000;
-			38 : data = 32'h00000000;
-			39 : data = 32'h00000000;
-			40 : data = 32'h00000000;
-			41 : data = 32'h00000000;
-			42 : data = 32'h00000000;
-			43 : data = 32'h00000000;
-			44 : data = 32'h00000000;
-			45 : data = 32'h00000000;
-			46 : data = 32'h00000000;
-			47 : data = 32'h00000000;
-			48 : data = 32'h00000000;
-			49 : data = 32'h00000000;
-			50 : data = 32'h00000000;
-			51 : data = 32'h00000000;
-			52 : data = 32'h00000000;
-			53 : data = 32'h00000000;
-			54 : data = 32'h00000000;
-			55 : data = 32'h00000000;
-			56 : data = 32'h00000000;
-			57 : data = 32'h00000000;
-			58 : data = 32'h00000000;
-			59 : data = 32'h00000000;
-			60 : data = 32'h00000000;
-			61 : data = 32'h00000000;
-			62 : data = 32'h00000000;
-			63 : data = 32'h00000000;
 		endcase
 	end
 
