@@ -1,4 +1,4 @@
-module aludec (
+module controlcodes (
 	input  [31:0] instr     ,
 	output [ 2:0] alucontrol
 );
@@ -7,7 +7,8 @@ module aludec (
 
 	always @(instr) begin
 		casex ({instr[31:26], instr[5:0]})
-			12'b000100xxxxxx : alucontrol = 3'b110;
+			// Sets the value of alucontrol based on which function we are doing (found from the opcode and funct field)
+			12'b000100xxxxxx : alucontrol = 3'b110; // x's since we don't care about the values there
 			12'b001010xxxxxx : alucontrol = 3'b111;
 			12'b001000xxxxxx : alucontrol = 3'b010;
 			12'bxxxxxx100000 : alucontrol = 3'b010;

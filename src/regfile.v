@@ -10,11 +10,11 @@ module regfile (
 	input  [ 4:0] addr3,
 	input  [31:0] wdata
 );
-
+	//32 registers of 32 bits
 	reg [31:0] regmem[31:0];
 	reg [31:0] data1       ;
 	reg [31:0] data2       ;
-
+	//Each of these conditions writes the data from the register into the data value if that value is needed for the current operation
 	always @(addr1 or regmem[addr1]) begin
 		if (0 == addr1) begin
 			data1 = 0;

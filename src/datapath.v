@@ -12,10 +12,10 @@ module datapath (
 	input         mem_write ,
 	input         reg_dst   ,
 	input         reg_write ,
-	// imem side
+	// instruction memory
 	input  [31:0] instr     ,
 	output [31:0] pc        ,
-	// dmem side
+	// data memory side
 	input  [31:0] read_data ,
 	output [31:0] alu_result,
 	output [31:0] write_data
