@@ -23,7 +23,7 @@ Tasks
   
 * For the MIPS 32-bit single cycle, we built a simple implementation using the datapath of the previous section 4.3 and added a simple control function. This simple implementation covers load word (lw), store word (sw), branch equal (beq), and the arithmetic-logical instructions add, sub, OR,, and set on less than. We then enhanced the design to include a jump instruction (j). 
 
-* In order to run: place the instruction's 32 bit value in the instrmem file in the order you'd like them to execute (This website has a converter: https://www.eg.bucknell.edu/~csci320/mips_web/). After this do: _$ iverilog -o tb.vvp tb.v_, _vvp tb.vvp_, _gtkwave dump.vcd_ in order to view the waves.
+* In order to run: place the instruction's 32 bit value in the instrmem file in the order you'd like them to execute (This website has a converter: https://www.eg.bucknell.edu/~csci320/mips_web/). After this do: _$ iverilog -o tb.vvp tb.v_, _$vvp tb.vvp_, _$gtkwave dump.vcd_ in order to view the waves.
 
 * The single cycle executes from the testbench file into the top file. Instr mem is then accessed to get the first instruction and then the datapath is followed according to how an actual CPU evaluates instructions. 
 
