@@ -10,9 +10,9 @@ Tasks
 
 **Contributors**
 
-Jose Pavon
-David Bohon
-Selim Frljuckic
+  -Jose Pavon
+  -David Bohon
+  -Selim Frljuckic
   
   
   
